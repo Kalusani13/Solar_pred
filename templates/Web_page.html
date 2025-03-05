@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Solar Irradiation Prediction</title>
+</head>
+<body>
+    <h1>Solar Irradiation Prediction</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="T2M" placeholder="T2M" required="required" value="{{ input_values.T2M if input_values }}" /><br>
+        <input type="text" name="WS2M" placeholder="WS2M" required="required" value="{{ input_values.WS2M if input_values }}" /><br>
+        <input type="text" name="RH2M" placeholder="RH2M" required="required" value="{{ input_values.RH2M if input_values }}" /><br>
+        <input type="text" name="PRECTOTCORR" placeholder="PRECTOTCORR" required="required" value="{{ input_values.PRECTOTCORR if input_values }}" /><br>
+        <input type="text" name="CLOUD_AMT" placeholder="CLOUD_AMT" required="required" value="{{ input_values.CLOUD_AMT if input_values }}" /><br>
+        <input type="text" name="hour_sin" placeholder="hour_sin" required="required" value="{{ input_values.hour_sin if input_values }}" /><br>
+        <input type="text" name="hour_cos" placeholder="hour_cos" required="required" value="{{ input_values.hour_cos if input_values }}" /><br>
+        <input type="text" name="day_of_year_sin" placeholder="day_of_year_sin" required="required" value="{{ input_values.day_of_year_sin if input_values }}" /><br>
+        <input type="text" name="day_of_year_cos" placeholder="day_of_year_cos" required="required" value="{{ input_values.day_of_year_cos if input_values }}" /><br>
+        <input type="text" name="lag1" placeholder="lag1" required="required" value="{{ input_values.lag1 if input_values }}" /><br>
+        <input type="text" name="lag24" placeholder="lag24" required="required" value="{{ input_values.lag24 if input_values }}" /><br>
+        <input type="text" name="lag365" placeholder="lag365" required="required" value="{{ input_values.lag365 if input_values }}" /><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div>
+        {{ prediction_text }}
+    </div>
+</body>
+</html>
